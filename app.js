@@ -10,7 +10,7 @@ app.get("/", (req, res)=>{
 });
 app.get("/result", (req, res)=>{
     const query = req.query.search;
-    const url = "http://www.omdbapi.com/?apikey=process.env.API_Key&s=" + query;
+    const url = "http://www.omdbapi.com/?apikey=${process.env.API_Key}&s=" + query;
     request(url, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             const data = JSON.parse(body)
